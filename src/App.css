@@ -9,11 +9,11 @@
 
 body{
   /* background: linear-gradient( #090c32, #01032cd9) !important; */
-  background: #010015 !important;
+  background: black !important;
 }
 
 .MuiPaper-root ul {
-  background-color: #090c32;
+  background-color: black;
 }
 
 @media (prefers-reduced-motion: no-preference) {

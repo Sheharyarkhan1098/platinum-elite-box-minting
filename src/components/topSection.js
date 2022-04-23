@@ -14,6 +14,8 @@ import Grid from "@material-ui/core/Grid";
 import { isMobile } from "react-device-detect";
 import TextField from "@material-ui/core/TextField";
 import { ContactsOutlined } from "@material-ui/icons";
+import banner from "../collage.png"
+import bg from "../HEORE.jpg"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,6 +60,23 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     [theme.breakpoints.down("xs")]: {
       fontSize: 25,
+    },
+  },
+  subHeading: {
+    marginBottom: 5,
+    fontWeight: "Bolder",
+    color: "snow",
+    textAlign: "center",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 12,
+    },
+  },
+  instruction: {
+    padding: 5,
+    color: "snow",
+    fontSize: 18,
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 12,
     },
   },
   mint: {
@@ -125,7 +144,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imgContainer: {
-    maxWidth: 600,
+    maxWidth: 700,
     display: "flex",
     justifyContent: "center",
     margin: 10,
@@ -138,6 +157,7 @@ function TopSection() {
   const classes = useStyles();
   const [count, setCount] = useState(1);
   const [allowed, setAllowed] = useState(0);
+  const [currentBalance, setCurrentBalance] = useState(0);
   const wei = 1000000000000000000;
   const price = 0.25; // 0.07 -- for public sale 0.10
 
@@ -167,6 +187,7 @@ function TopSection() {
   useEffect(() => {
     if(active)
     checkAllowance();
+    getBalance()
   },[active, account, count, allowed])
 
 
@@ -224,6 +245,18 @@ Try Different browser or Install Metamask.`);
 
   }
 
+  async function getBalance() {
+    try{
+      if(active){
+        let balance = await Contract.methods.balanceOf(account, "1").call();
+        setCurrentBalance(balance);
+      }
+    }catch(err){
+      console.log(err);
+      alert(JSON.stringify(err))
+    }
+  }
+
 
   async function mint() {
     try {
@@ -257,15 +290,17 @@ Try Different browser or Install Metamask.`);
 
   async function connect() {
     try {
+      if (!window?.web3?.currentProvider) {
+        alert(`Metamask is not installed.
+Try Different browser or Install Metamask.`);
+        return;
+      }
       let id = await web3.eth.net.getId();
-
       if (id !== parseInt(chainId)) {
-        alert("Please change your network to rinkbey");
+        alert("Please change your network to Rinkbey");
         return false;
       }
-      setTimeout(async () => {
-        await activate(injected);
-      }, 1000);
+      await activate(injected);
     } catch (ex) {
       console.log(ex);
     }
@@ -281,12 +316,12 @@ Try Different browser or Install Metamask.`);
         style={{
           width: "100%",
           justifyContent: "center",
-          // backgroundColor: "linear-gradient(180deg, #090c32, #000000d9)",
-          backgroundImage: `url("HEORE.jpg")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          backgroundColor: "black",
+          // backgroundImage: `url(${bg})`,
+          // backgroundRepeat: "no-repeat",
+          // backgroundSize: "cover",
           // minHeight: "100vh",
-          padding: "150px 0 50px",
+          padding: "200px 0 50px",
         }}
       >
         <Grid
@@ -298,12 +333,25 @@ Try Different browser or Install Metamask.`);
             display: "flex",
           }}
         >
-          <Typography component="div" style={{display: "flex", justifyContent: "space-between", flexDirection: "column", alignItems: "center",  maxWidth: 700, padding: 20 }}>
+          <Typography component="div" style={{height: "100%", display: "flex", justifyContent: "space-between", flexDirection: "column", alignItems: "center",  maxWidth: 700, padding: 20 }}>
             <Typography variant="h3" className={classes.h4}>
-              Mint your Boxes Here!
+            Whitelist Mint is Now Open!
             </Typography>
-            <Typography variant="h5" className={classes.mint}>
+            <Typography variant="h6" className={classes.subHeading}>
+            ''Mint your Platinum Elite NFT Loot Boxes''
+            </Typography>
+            {/* <Typography variant="h6" className={classes.mint}>
               200 BUSD / NFT
+            </Typography> */}
+            <Typography variant="h6" className={classes.instruction}>
+            <Typography variant="h5" style={{margin: "5px 0"}} > Instructions: </Typography>
+              1. Connect your Metamask wallet. <br />
+              2. Select the number of NFTs you want to mint. <br />
+              3. Click Approve, then confirm permissions on Metamask.<br />  
+              &nbsp;  (Wait for a few seconds until you see ''Mint Now'') <br />
+              4. Click on 'Mint Now'. <br />
+              5. Confirm the transaction on your Metamask. <br />
+              6. Your NFT Balance should be updated and show your owned NFTs.<br /> &nbsp;(Give it 1-2 min and refresh page if necessary)
             </Typography>
             {/* <Typography variant="h3" className={classes.h3}>
               Cool Boys
@@ -322,8 +370,33 @@ Try Different browser or Install Metamask.`);
             </Typography> */}
 
             {/* mint counter */}
+            {window.ethereum ? 
+            <Button
+              color="inherit"
+              // variant="contained"
+              className={classes.menuButton}
+              style={{marginTop: 20}}
+              onClick={connect}
+            >
+              {" "}
+              {active ? "Connected" : "Connect Wallet"}
+              </Button>
+              : 
+              <Button
+              color="inherit"
+              // variant="contained"
+              className={classes.menuButton}
+              style={{marginTop: 20}}
+              href={
+                "https://metamask.app.link/dapp/cryptorambo.io/mint/"
+              }
+            >
+              {" "}
+              {active ? "Connected" : "Connect Wallet"}
+              </Button>
+              }
 
-            <Typography component="div" style={{ display: "flex",  marginTop: 20 }}>
+            <Typography component="div" style={{ display: "flex" }}>
               <Button
                 color="inherit"
                 variant="outlined"
@@ -388,7 +461,7 @@ Try Different browser or Install Metamask.`);
                   )
                 ) : (
                   <Button
-                    href="https://metamask.app.link/dapp/minting.catmobstaz.com/"
+                    href="https://metamask.app.link/dapp/cryptorambo.io/mint/"
                     color="inherit"
                     // variant="contained"
                     className={classes.menuButton}
@@ -411,6 +484,9 @@ Try Different browser or Install Metamask.`);
                 </Button>
               )}
             </Typography>
+            <Typography variant="h5" className={classes.mint}>
+              Your Balance: {currentBalance}
+            </Typography>
           </Typography>
         </Grid>
         <Grid
@@ -423,7 +499,7 @@ Try Different browser or Install Metamask.`);
           }}
         > 
           <Typography component="div" className={classes.imgContainer} >
-          <img className={classes.img} src="/collage.png" alt={"collage"} style={{borderRadius: 30}} />
+          <img className={classes.img} src={banner} alt={"collage"} style={{borderRadius: 30}} />
           </Typography>
         </Grid>
       </Grid>

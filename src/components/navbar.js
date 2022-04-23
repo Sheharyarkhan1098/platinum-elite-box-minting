@@ -16,6 +16,8 @@ import Web3 from "web3";
 import { injected } from "../wallet/connectors";
 import { useWeb3React } from "@web3-react/core";
 
+import logoRambo from "../logo_rambo.png"
+
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     fontSize: 50,
@@ -36,11 +38,11 @@ const useStyles = makeStyles((theme) => ({
   },
   navBar: {
     // backgroundColor: "#7a2048",
-    // backgroundColor: "white",
-    backgroundImage: "linear-gradient(180deg, #090c32, #000000d9)",
+    backgroundColor: "black",
+    // backgroundImage: "linear-gradient(180deg, #090c32, #000000d9)",
     // backgroundImage: `url("/footer.png")`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    // backgroundRepeat: "no-repeat",
+    // backgroundSize: "cover",
     color: "black",
     padding: "10px 30px",
     [theme.breakpoints.down("xs")]: {
@@ -74,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   menuItem: {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "#090c32"
+    backgroundColor: "black"
   },
 }));
 
@@ -127,8 +129,13 @@ Try Different browser or Install Metamask.`);
   };
   return (
     <AppBar position="fixed" className={classes.navBar}>
-      <Container maxWidth="xl" style={{ padding: 0 }}>
+      <Container maxWidth="lg" style={{ padding: 0 }}>
         <Toolbar>
+          <Typography component="div" style={{margin: "0 10px"}}>
+              <a href="https://cryptorambo.io/" >
+              <img src={logoRambo} width="150px" />
+             </a>
+          </Typography>
           <Typography variant="h4" className={classes.title}>
             Platinum Elite Box
           </Typography>
@@ -160,15 +167,25 @@ Try Different browser or Install Metamask.`);
                 />
               </a>
             </Typography> */}
-              {/* <Button
-                href="https://staking.catmobstaz.com"
+              <Button
+                href="https://cryptorambo.io/"
                 color="inherit"
+                target="_blank"
                 variant="contained"
                 className={classes.button}
               >
-                Stake NFT's
-              </Button> */}
-            <Button
+                Home
+              </Button>
+              <Button
+                href="https://t.me/CryptoRamboGroup"
+                color="inherit"
+                target="_blank"
+                variant="contained"
+                className={classes.button}
+              >
+                Telegram
+              </Button>
+            {/* <Button
               color="inherit"
               variant="contained"
               className={classes.button}
@@ -176,7 +193,7 @@ Try Different browser or Install Metamask.`);
             >
               {" "}
               {walletConnected ? "Connected" : "Connect Wallet"}
-            </Button>
+            </Button> */}
           </Hidden>
           <Hidden only={["md", "lg", "xl"]}>
             <IconButton
@@ -197,24 +214,36 @@ Try Different browser or Install Metamask.`);
             onClose={handleClose}
             className={classes.menu}
           >
-            {/* <MenuItem onClick={handleClose} className={classes.menuItem}>
-              <a
+            <MenuItem onClick={handleClose} className={classes.menuItem}>
+              {/* <a
                 rel="noreferrer"
                 style={{ textDecoration: "none" }}
                 href="https://discord.gg/nf89WZxKha"
                 target="_blank"
+              > */}
+                 <Button
+                href="https://cryptorambo.io/"
+                color="inherit"
+                target="_blank"
+                variant="contained"
+                className={classes.button}
               >
-                <Button
+                Home
+              </Button>
+              {/* </a> */}
+            </MenuItem>
+            <MenuItem onClick={handleClose} className={classes.menuItem}>
+            <Button
                   color="inherit"
                   variant="outlined"
+                  href="https://t.me/CryptoRamboGroup"
+                  target="_blank"
                   className={classes.button}
-                  style={{ color: "#408ec6" }}
                 >
-                  Join Discord
+                  Telegram
                 </Button>
-              </a>
-            </MenuItem> */}
-            {window.ethereum ? (
+                </MenuItem>
+            {/* {window.ethereum ? (
               <MenuItem onClick={handleClose} className={classes.menuItem}>
                 <Button
                   color="inherit"
@@ -240,7 +269,7 @@ Try Different browser or Install Metamask.`);
                   Connect Wallet
                 </Button>
               </MenuItem>
-            )}
+            )} */}
             {/* <MenuItem onClick={handleClose} className={classes.menuItem}>
               <a
                 rel="noreferrer"
