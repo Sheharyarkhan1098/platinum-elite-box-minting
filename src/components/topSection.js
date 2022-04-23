@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { VideoCard } from "material-ui-player";
 
 import Web3 from "web3";
 import { injected } from "../wallet/connectors";
@@ -16,7 +15,7 @@ import { isMobile } from "react-device-detect";
 import TextField from "@material-ui/core/TextField";
 import { ContactsOutlined } from "@material-ui/icons";
 import banner from "../collage.png";
-// import bannerVideo from "../PlatinumEliteNFT.mp4";
+import videoSrc from "../PlatinumEliteNFT.mp4";
 import bg from "../HEORE.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -535,7 +534,7 @@ Try Different browser or Install Metamask.`);
               alt={"collage"}
               style={{ borderRadius: 30 }}
             /> */}
-            <VideoCard src={"/PlatinumEliteNFT.mp4"} />
+            <video src={videoSrc} width="100%" muted="true" autoplay="true" loop="true"  style={{ borderRadius: 30 }} />
           </Typography>
         </Grid>
       </Grid>
