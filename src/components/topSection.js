@@ -355,8 +355,18 @@ Try Different browser or Install Metamask.`);
               Whitelist Mint is Now Open!
             </Typography>
             <Typography variant="h6" className={classes.subHeading}>
-              ''Mint your Platinum Elite NFT Loot Boxes''
+              Mint your Platinum Elite NFT Loot Boxes before they are sold out.
+              Each NFT grants its owner an exclusive in-game item and 2500 CRT
+              tokens Airdrop.
             </Typography>
+            <a
+              href="https://whitepaper.cryptorambo.io/tokenomics/platinum-elite-nft"
+              target={"_blank"}
+            >
+              <Typography variant="h6" className={classes.subHeading}>
+                Click here to discover all the benefits of owning this NFT.
+              </Typography>
+            </a>
             {/* <Typography variant="h6" className={classes.mint}>
               200 BUSD / NFT
             </Typography> */}
@@ -393,7 +403,10 @@ Try Different browser or Install Metamask.`);
 
             {/* mint counter */}
             <Typography variant="h5" className={classes.mint}>
-              NFTs Minted: {totalSupply} / 2800
+              Total NFTs Minted: {totalSupply} / 2800
+            </Typography>
+            <Typography variant="h6" className={classes.mint}>
+              Price for each NFT is $200 in BUSD
             </Typography>
             {window.ethereum ? (
               <Button
@@ -514,7 +527,7 @@ Try Different browser or Install Metamask.`);
               )}
             </Typography>
             <Typography variant="h5" className={classes.mint}>
-              Your Balance: {currentBalance}
+              NFTs You Own: {currentBalance}
             </Typography>
           </Typography>
         </Grid>
@@ -534,7 +547,14 @@ Try Different browser or Install Metamask.`);
               alt={"collage"}
               style={{ borderRadius: 30 }}
             /> */}
-            <video src={videoSrc} width="100%" muted="true" autoplay="true" loop="true"  style={{ borderRadius: 30 }} />
+            <video
+              src={videoSrc}
+              width="100%"
+              muted="true"
+              autoplay="true"
+              loop="true"
+              style={{ borderRadius: 30 }}
+            />
           </Typography>
         </Grid>
       </Grid>

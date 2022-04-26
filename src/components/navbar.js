@@ -16,7 +16,7 @@ import Web3 from "web3";
 import { injected } from "../wallet/connectors";
 import { useWeb3React } from "@web3-react/core";
 
-import logoRambo from "../logo_rambo.png"
+import logoRambo from "../logo_rambo.png";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -56,10 +56,10 @@ const useStyles = makeStyles((theme) => ({
     padding: "15px 10px",
     color: "snow",
     background: "none",
-    "&:hover":{
+    "&:hover": {
       background: "snow",
       color: "#090c32",
-    }
+    },
   },
   icons: {
     fontSize: 30,
@@ -71,12 +71,11 @@ const useStyles = makeStyles((theme) => ({
   menu: {
     display: "flex",
     justifyContent: "center",
-    
   },
   menuItem: {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "black"
+    backgroundColor: "black",
   },
 }));
 
@@ -131,13 +130,13 @@ Try Different browser or Install Metamask.`);
     <AppBar position="fixed" className={classes.navBar}>
       <Container maxWidth="lg" style={{ padding: 0 }}>
         <Toolbar>
-          <Typography component="div" style={{margin: "0 10px"}}>
-              <a href="https://cryptorambo.io/" >
+          <Typography component="div" style={{ margin: "0 10px" }}>
+            <a href="https://cryptorambo.io/">
               <img src={logoRambo} width="150px" />
-             </a>
+            </a>
           </Typography>
           <Typography variant="h4" className={classes.title}>
-            Platinum Elite Box
+            Platinum Elite NFT
           </Typography>
           <Hidden only={["xs", "sm"]}>
             {/* <Typography component="div">
@@ -167,24 +166,24 @@ Try Different browser or Install Metamask.`);
                 />
               </a>
             </Typography> */}
-              <Button
-                href="https://cryptorambo.io/"
-                color="inherit"
-                target="_blank"
-                variant="contained"
-                className={classes.button}
-              >
-                Home
-              </Button>
-              <Button
-                href="https://t.me/CryptoRamboGroup"
-                color="inherit"
-                target="_blank"
-                variant="contained"
-                className={classes.button}
-              >
-                Telegram
-              </Button>
+            <Button
+              href="https://cryptorambo.io/"
+              color="inherit"
+              target="_blank"
+              variant="contained"
+              className={classes.button}
+            >
+              Home
+            </Button>
+            <Button
+              href="https://t.me/CryptoRamboGroup"
+              color="inherit"
+              target="_blank"
+              variant="contained"
+              className={classes.button}
+            >
+              Telegram
+            </Button>
             {/* <Button
               color="inherit"
               variant="contained"
@@ -221,7 +220,7 @@ Try Different browser or Install Metamask.`);
                 href="https://discord.gg/nf89WZxKha"
                 target="_blank"
               > */}
-                 <Button
+              <Button
                 href="https://cryptorambo.io/"
                 color="inherit"
                 target="_blank"
@@ -233,16 +232,16 @@ Try Different browser or Install Metamask.`);
               {/* </a> */}
             </MenuItem>
             <MenuItem onClick={handleClose} className={classes.menuItem}>
-            <Button
-                  color="inherit"
-                  variant="outlined"
-                  href="https://t.me/CryptoRamboGroup"
-                  target="_blank"
-                  className={classes.button}
-                >
-                  Telegram
-                </Button>
-                </MenuItem>
+              <Button
+                color="inherit"
+                variant="outlined"
+                href="https://t.me/CryptoRamboGroup"
+                target="_blank"
+                className={classes.button}
+              >
+                Telegram
+              </Button>
+            </MenuItem>
             {/* {window.ethereum ? (
               <MenuItem onClick={handleClose} className={classes.menuItem}>
                 <Button
