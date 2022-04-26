@@ -21,7 +21,7 @@ import bg from "../HEORE.jpg";
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
-    borderRadius: 0,
+    borderRadius: 20,
     padding: 10,
     margin: "10px",
     color: "snow",
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#040b38",
     },
     "&:hover": {
-      backgroundColor: "snow",
+      background: "linear-gradient(yellow, red)",
       color: "#1e2761",
     },
   },
@@ -66,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 5,
     fontWeight: "Bolder",
     color: "snow",
+    fontSize: 16,
     textAlign: "center",
     [theme.breakpoints.down("xs")]: {
       fontSize: 12,
@@ -74,17 +75,18 @@ const useStyles = makeStyles((theme) => ({
   instruction: {
     padding: 5,
     color: "snow",
-    fontSize: 18,
+    fontSize: 15,
     [theme.breakpoints.down("xs")]: {
-      fontSize: 12,
+      fontSize: 13,
     },
   },
   mint: {
     marginBottom: 5,
     fontWeight: "Bolder",
     color: "snow",
+    fontSize: 20,
     [theme.breakpoints.down("xs")]: {
-      fontSize: 20,
+      fontSize: 16,
     },
   },
   body2: {
@@ -110,8 +112,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   decrementBtn: {
-    // borderTopLeftRadius: 30,
-    // borderBottomLeftRadius: 30,
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
     borderRadius: 0,
     // backgroundColor: "#1e2761",
     color: "snow",
@@ -122,13 +124,13 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "grey",
     },
     "&:hover": {
-      backgroundColor: "snow",
+      background: "linear-gradient(yellow, red)",
       color: "#1e2761",
     },
   },
   incrementBtn: {
-    // borderTopRightRadius: 30,
-    // borderBottomRightRadius: 30,
+    borderTopRightRadius: 30,
+    borderBottomRightRadius: 30,
     borderRadius: 0,
     // backgroundColor: "#1e2761",
     color: "snow",
@@ -139,7 +141,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "grey",
     },
     "&:hover": {
-      backgroundColor: "snow",
+      background: "linear-gradient(yellow, red)",
       color: "#1e2761",
     },
   },
@@ -362,6 +364,7 @@ Try Different browser or Install Metamask.`);
             <a
               href="https://whitepaper.cryptorambo.io/tokenomics/platinum-elite-nft"
               target={"_blank"}
+              style={{textDecoration: "none"}}
             >
               <Typography variant="h6" className={classes.subHeading}>
                 Click here to discover all the benefits of owning this NFT.

@@ -50,14 +50,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    borderRadius: 0,
     margin: 5,
     border: "1px solid snow",
     padding: "15px 10px",
     color: "snow",
+    borderRadius: 25,
     background: "none",
     "&:hover": {
-      background: "snow",
+      background: "linear-gradient(yellow, red)",
       color: "#090c32",
     },
   },
