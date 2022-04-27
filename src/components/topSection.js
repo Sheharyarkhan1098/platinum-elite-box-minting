@@ -72,6 +72,20 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 12,
     },
   },
+  subHeadingAnchor: {
+    marginBottom: 5,
+    fontWeight: "Bolder",
+    color: "snow",
+    fontSize: 16,
+    textAlign: "center",
+    textDecoration: "underline",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 12,
+    },
+    "&:hover": {
+      color: "#4545f1",
+    }
+  },
   instruction: {
     padding: 5,
     color: "snow",
@@ -357,7 +371,7 @@ Try Different browser or Install Metamask.`);
               Whitelist Mint is Now Open!
             </Typography>
             <Typography variant="h6" className={classes.subHeading}>
-              Mint your Platinum Elite NFT Loot Boxes before they are sold out.
+              Mint your Platinum Elite NFT Loot Boxes before they are sold out. <br />
               Each NFT grants its owner an exclusive in-game item and 2500 CRT
               tokens Airdrop.
             </Typography>
@@ -366,7 +380,7 @@ Try Different browser or Install Metamask.`);
               target={"_blank"}
               style={{textDecoration: "none"}}
             >
-              <Typography variant="h6" className={classes.subHeading}>
+              <Typography variant="h6" className={classes.subHeadingAnchor} >
                 Click here to discover all the benefits of owning this NFT.
               </Typography>
             </a>
@@ -409,7 +423,7 @@ Try Different browser or Install Metamask.`);
               Total NFTs Minted: {totalSupply} / 2800
             </Typography>
             <Typography variant="h6" className={classes.mint}>
-              Price for each NFT is $200 in BUSD
+              Price for each NFT is $200 BUSD
             </Typography>
             {window.ethereum ? (
               <Button
