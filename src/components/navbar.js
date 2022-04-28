@@ -109,7 +109,7 @@ Try Different browser or Install Metamask.`);
       }
       let id = await web3.eth.net.getId();
       if (id !== parseInt(chainId)) {
-        alert("Please change your network to Rinkbey");
+        alert("Please change your network to BSC Mainnet");
         return false;
       }
       await activate(injected);

@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "&:hover": {
       color: "#4545f1",
-    }
+    },
   },
   instruction: {
     padding: 5,
@@ -227,7 +227,7 @@ Try Different browser or Install Metamask.`);
       let id = await web3.eth.net.getId();
 
       if (id !== parseInt(chainId)) {
-        alert("Please change your network to rinkbey");
+        alert("Please change your network to BSC Mainnet");
         return false;
       }
 
@@ -293,7 +293,7 @@ Try Different browser or Install Metamask.`);
       let id = await web3.eth.net.getId();
 
       if (id !== parseInt(chainId)) {
-        alert("Please change your network to rinkbey");
+        alert("Please change your network to BSC Mainnet");
         return false;
       }
 
@@ -320,7 +320,7 @@ Try Different browser or Install Metamask.`);
       }
       let id = await web3.eth.net.getId();
       if (id !== parseInt(chainId)) {
-        alert("Please change your network to Rinkbey");
+        alert("Please change your network to BSC Mainnet");
         return false;
       }
       await activate(injected);
@@ -371,16 +371,17 @@ Try Different browser or Install Metamask.`);
               Whitelist Mint is Now Open!
             </Typography>
             <Typography variant="h6" className={classes.subHeading}>
-              Mint your Platinum Elite NFT Loot Boxes before they are sold out. <br />
+              Mint your Platinum Elite NFT Loot Boxes before they are sold out.{" "}
+              <br />
               Each NFT grants its owner an exclusive in-game item and 2500 CRT
               tokens Airdrop.
             </Typography>
             <a
               href="https://whitepaper.cryptorambo.io/tokenomics/platinum-elite-nft"
               target={"_blank"}
-              style={{textDecoration: "none"}}
+              style={{ textDecoration: "none" }}
             >
-              <Typography variant="h6" className={classes.subHeadingAnchor} >
+              <Typography variant="h6" className={classes.subHeadingAnchor}>
                 Click here to discover all the benefits of owning this NFT.
               </Typography>
             </a>
