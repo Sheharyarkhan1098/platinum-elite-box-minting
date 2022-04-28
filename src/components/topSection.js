@@ -194,9 +194,8 @@ function TopSection() {
   const Contract = new web3.eth.Contract(contractAbi, ContractAddress);
   const BUSDContract = new web3.eth.Contract(BUSDAbi, BUSDContractAddress);
 
-  console.log(BUSDContract, "adasdhasd");
-
   useEffect(() => {
+    console.log(active, "jdshfjgsdjgfsgdfgjh");
     if (active) checkAllowance();
     getBalance();
     getMintedToken();
@@ -205,7 +204,7 @@ function TopSection() {
   async function checkAllowance() {
     try {
       let result = await BUSDContract.methods
-        .allowance(`${account}`, "0xAa8586eA6713514ac97E51A60c30CB25bcd85A9E")
+        .allowance(`${account}`, "0x887065c1C18A137d9cD93008e815a0c4B7eb1009")
         .call();
       console.log(result / wei);
       setAllowed(result / wei);
