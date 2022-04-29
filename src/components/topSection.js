@@ -425,6 +425,9 @@ Try Different browser or Install Metamask.`);
             <Typography variant="h6" className={classes.mint}>
               Price for each NFT is $200 BUSD
             </Typography>
+            <Typography variant="body1" style={{color: "white", textAlign: "center"}}>
+              Connect Wallet to see # of NFTs minted.
+            </Typography>
             {window.ethereum ? (
               <Button
                 color="inherit"
